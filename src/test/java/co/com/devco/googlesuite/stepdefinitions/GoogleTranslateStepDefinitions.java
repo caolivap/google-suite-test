@@ -1,5 +1,6 @@
 package co.com.devco.googlesuite.stepdefinitions;
 
+import co.com.devco.googlesuite.questions.TheTranslatedWord;
 import co.com.devco.googlesuite.tasks.Go;
 import co.com.devco.googlesuite.tasks.Open;
 import co.com.devco.googlesuite.tasks.Translate;
@@ -12,8 +13,10 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import static co.com.devco.googlesuite.tasks.SuiteUrl.GOOGLE;
 import static co.com.devco.googlesuite.userinterfaces.GoogleAppsComponent.GOOGLE_TRANSLATE;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.Matchers.equalTo;
 
 public class GoogleTranslateStepDefinitions {
 
@@ -40,7 +43,8 @@ public class GoogleTranslateStepDefinitions {
     }
 
     @Then("^she should see the word (.*) in the screen$")
-    public void sheShouldSeeTheWordQuesoInTheScreen() throws Exception {
+    public void sheShouldSeeTheWordQuesoInTheScreen(String theTranslatedWord) throws Exception {
+	    theActorInTheSpotlight().should(seeThat(TheTranslatedWord.is(), equalTo(theTranslatedWord)));
     }
 
 
