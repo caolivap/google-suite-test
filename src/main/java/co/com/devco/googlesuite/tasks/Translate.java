@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
 import static co.com.devco.googlesuite.userinterfaces.GoogleTranslatePage.*;
+import static org.openqa.selenium.Keys.ENTER;
 
 public class Translate implements Task {
 
@@ -24,11 +25,10 @@ public class Translate implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(SOURCE_LANGUAGE_OPTION),
-                Click.on(SOURCE_LANGUAGE.of(theSourceLanguage)),
+                Enter.theValue(theSourceLanguage).into(SOURCE_LANGUAGE).thenHit(ENTER),
                 Click.on(TARGET_LANGUAGE_OPTION),
-                Click.on(TARGET_LANGUAGE.of(theTargetLanguage)),
-                Enter.theValue(theWord).into(SOURCE_LANGUAGE_TEXTAREA),
-                Click.on(TRANSLATE)
+                Enter.theValue(theTargetLanguage).into(TARGET_LANGUAGE).thenHit(ENTER),
+                Enter.theValue(theWord).into(SOURCE_LANGUAGE_TEXTAREA)
         );
     }
 

@@ -13,6 +13,7 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 
 import static co.com.devco.googlesuite.tasks.SuiteUrl.GOOGLE;
 import static co.com.devco.googlesuite.userinterfaces.GoogleAppsComponent.GOOGLE_TRANSLATE;
+import static net.serenitybdd.screenplay.EventualConsequence.eventually;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -37,14 +38,14 @@ public class GoogleTranslateStepDefinitions {
 
     @When("^she translates the word (.*) from (.*) to (.*)$")
     public void sheTranslatesTheWordCheeseFromInglésToEspañol(String theWord, String theSourceLanguage, String theTargetLanguage) throws Exception {
-	    theActorInTheSpotlight().attemptsTo(
+ 	    theActorInTheSpotlight().attemptsTo(
 	            Translate.theWord(theWord).from(theSourceLanguage).to(theTargetLanguage)
         );
     }
 
     @Then("^she should see the word (.*) in the screen$")
     public void sheShouldSeeTheWordQuesoInTheScreen(String theTranslatedWord) throws Exception {
-	    theActorInTheSpotlight().should(seeThat(TheTranslatedWord.is(), equalTo(theTranslatedWord)));
+	    theActorInTheSpotlight().should(eventually(seeThat(TheTranslatedWord.is(), equalTo(theTranslatedWord))));
     }
 
 

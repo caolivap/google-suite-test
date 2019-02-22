@@ -11,7 +11,7 @@ public class TheTranslatedWord implements Question<String> {
 
     @Override
     public String answeredBy(Actor actor) {
-        return Text.of(TARGET_LANGUAGE_RESULT).viewedBy(actor).asString();
+        return Text.of(TARGET_LANGUAGE_RESULT).viewedBy(actor).asString().replace("\n ", "");
     }
 
     public static TheTranslatedWord is(){
