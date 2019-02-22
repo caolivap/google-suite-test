@@ -42,8 +42,3 @@ dependencies {
     implementation "net.serenity-bdd:serenity-cucumber4:$rootProject.ext.serenityCucumberVersion"
     implementation 'net.serenity-bdd:serenity-screenplay-webdriver:1.1.36'
 }
-
-tasks.withType(Test) {
-    systemProperties = System.properties
-    maxParallelForks = Runtime.runtime.availableProcessors()
-}
