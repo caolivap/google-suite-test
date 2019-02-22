@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.targets.Target;
+import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -16,6 +17,7 @@ public class Open implements Task {
         this.option = option;
     }
 
+    @Step("{0} opens the #option")
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Click.on(option));

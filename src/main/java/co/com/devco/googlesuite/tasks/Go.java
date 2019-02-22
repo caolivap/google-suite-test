@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
+import net.thucydides.core.annotations.Step;
 
 import static co.com.devco.googlesuite.userinterfaces.GoogleAppsComponent.GOOGLE_APPS;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -17,6 +18,7 @@ public class Go implements Task {
       this.url = url;
     }
 
+    @Step("{0} wants to go to #url")
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(

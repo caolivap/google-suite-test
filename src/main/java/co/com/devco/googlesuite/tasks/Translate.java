@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.thucydides.core.annotations.Step;
 
 import static co.com.devco.googlesuite.userinterfaces.GoogleTranslatePage.*;
 import static org.openqa.selenium.Keys.ENTER;
@@ -21,6 +22,7 @@ public class Translate implements Task {
         this.theTargetLanguage = theTargetLanguage;
     }
 
+    @Step("{0} tries to translate the word #theWord from #theSourceLanguage to #theTargetLanguage")
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
