@@ -1,19 +1,21 @@
-Feature: Google Translate
-  As a web user
-  I want to use Google Translate
-  to translate words between different languages
+# language: es
 
-  Scenario: Translate from English to Spanish
-    Given that Susan wants to translate a word
-    When she translates the word cheese from Inglés to Español
-    Then she should see the word queso in the screen
+Característica: Traductor Google
+  Como Usuario Web
+  Quiero usar Google translate
+  Para traducir palabras en diferentes lenguajes
 
-  Scenario: Translate from Spanish to English
-    Given that Susan wants to translate a word
-    When she translates the word malteada from Español to Inglés
-    Then she should see the word milk shake in the screen
+  Escenario: Traduccion de Ingles a Español
+    Dado "Susana" quiere traducir una palabra
+    Cuando ella traduce la palabra "cheese" de "inglés" a "español"
+    Entonces ella debe ver la palabra "queso"
 
-  Scenario: Translate from Japanese to English
-    Given that Susan wants to translate a word
-    When she translates the word はじめまして from Japonés to Inglés
-    Then she should see the word Nice to meet you in the screen
+  Escenario: Traduccion de Español a Ingles
+    Dado "Carlos" quiere traducir una palabra
+    Cuando el traduce la palabra "casa" de "español" a "inglés"
+    Entonces el debe ver la palabra "home"
+
+  Escenario: Traduccion de Japones to Español
+    Dado "Farru" quiere traducir una palabra
+    Cuando el traduce la palabra "はじめまして" de "japonés" a "español"
+    Entonces el debe ver la palabra "Un placer conocerte"
