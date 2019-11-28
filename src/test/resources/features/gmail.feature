@@ -9,5 +9,5 @@ Característica: Recepción correo Gmail
 Escenario: Recepción de correo en Gmail
   Dado Carlos se encuentra en la bandeja de entrada de Gmail con usuario pruebascaoliva y contraseña testingGmail
   Cuando busca el correo con asunto Alerta de seguridad del remitente Google
-  Entonces encuentra en el cuerpo del mensaje el texto Se ha cambiado tu contraseña
+  Entonces encuentra en el cuerpo del mensaje el texto Se ha cambiado la contraseña
 

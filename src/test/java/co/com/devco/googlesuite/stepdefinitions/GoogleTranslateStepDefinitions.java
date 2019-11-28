@@ -31,14 +31,14 @@ public class GoogleTranslateStepDefinitions {
 	}
 
 	@When("she translates the word (.*) from (.*) to (.*)")
-	public void sheTranslatesTheWordCheeseFromInglésToEspañol(String theWord, String theSourceLanguage, String theTargetLanguage) {
+	public void sheTranslatesTheWord(String theWord, String theSourceLanguage, String theTargetLanguage) {
 		theActorInTheSpotlight().attemptsTo(
-				//Translate.theWord(theWord).from(theSourceLanguage).to(theSourceLanguage)
+				//Translate.theWord(theWord).from(theSourceLanguage).to(theTargetLanguage)
 		);
 	}
 
 	@Then("she should see the word (.*) in the screen")
-	public void sheShouldSeeTheWordQuesoInTheScreen(String word) {
+	public void sheShouldSeeTheWordInTheScreen(String word) {
 
 	}
 

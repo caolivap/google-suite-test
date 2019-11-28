@@ -4,6 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.thucydides.core.annotations.Step;
 
 import static co.com.devco.googlesuite.userinterfaces.RecibidosPage.ULTIMO_CORREO;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -18,6 +19,7 @@ public class Buscar implements Task {
         this.remitente = remitente;
     }
 
+    @Step("{0} busca el correo con #asunto y #remitente")
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(

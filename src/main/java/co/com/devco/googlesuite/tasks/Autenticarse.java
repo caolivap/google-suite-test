@@ -9,6 +9,8 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.EnterValueIntoTarget;
 import net.serenitybdd.screenplay.actions.Switch;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import net.thucydides.core.annotations.Step;
+import org.openqa.selenium.Keys;
 
 import java.util.ArrayList;
 
@@ -27,16 +29,17 @@ public class Autenticarse implements Task {
         this.contrasenia = contrasenia;
     }
 
+    @Step("{0} se autentica con su usuario y contrasenia")
     @Override
     public <T extends Actor> void performAs(T actor) {
         ArrayList<String> tabs = new ArrayList<String> (getDriver().getWindowHandles());
         BrowseTheWeb.as(actor).getDriver().switchTo().window(tabs.get(1));
         actor.attemptsTo(
-                Enter.theValue(usuario).into(INPUT_USUARIO),
-                Click.on(BTN_SIGUIENTE),
+                Enter.theValue(usuario).into(INPUT_USUARIO).thenHit(Keys.ENTER),
+                //Click.on(BTN_SIGUIENTE),
                 WaitUntil.the(INPUT_PASSWORD, isVisible()),
-                Enter.theValue(contrasenia).into(INPUT_PASSWORD),
-                Click.on(BTN_SIGUIENTE)
+                Enter.theValue(contrasenia).into(INPUT_PASSWORD).thenHit(Keys.ENTER)
+                //Click.on(BTN_SIGUIENTE)
         );
     }
 
