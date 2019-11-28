@@ -1,6 +1,5 @@
 package co.com.devco.googlesuite.questions;
 
-import co.com.devco.googlesuite.userinterfaces.RecibidosPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
@@ -9,13 +8,19 @@ import static co.com.devco.googlesuite.userinterfaces.RecibidosPage.CUERPO_CORRE
 
 public class Mensaje implements Question<String> {
 
-    @Override
-    public String answeredBy(Actor actor) {
-        return Text.of(CUERPO_CORREO).viewedBy(actor).asString();
+    private String textoCorreo;
+
+    public Mensaje(String textoCorreo){
+        this.textoCorreo = textoCorreo;
     }
 
-    public static Question delCorreo() {
-        return new Mensaje();
+    @Override
+    public String answeredBy(Actor actor) {
+        return Text.of(CUERPO_CORREO.of(textoCorreo)).viewedBy(actor).asString();
+    }
+
+    public static Question delCorreo(String textoCorreo) {
+        return new Mensaje(textoCorreo);
     }
 
 }

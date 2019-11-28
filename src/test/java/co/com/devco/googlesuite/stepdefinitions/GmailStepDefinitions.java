@@ -44,6 +44,6 @@ public class GmailStepDefinitions {
 
     @Entonces("encuentra en el cuerpo del mensaje el texto (.*)")
     public void encuentraEnElCuerpoDelMensajeElTexto(String texto) {
-        theActorInTheSpotlight().should(seeThat("El mensaje en el correo", Mensaje.delCorreo(), containsString(texto)));
+        theActorInTheSpotlight().should(seeThat("El mensaje en el correo", Mensaje.delCorreo(texto), containsString(texto)));
     }
 }
