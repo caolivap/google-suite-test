@@ -7,4 +7,6 @@ public class GoogleHomePage extends PageObject {
 	
 	public static final Target POP_UP = Target.the("Privacy Pop Up").locatedBy("//a[@class='gb_Ba gb_Cd gb_ld']");
 
+	public static final Target GMAIL_LINK = Target.the("Link a Gmail").locatedBy("//a[@class='gb_g' and contains(text(), 'Gmail')]");
+
 }
